@@ -37,7 +37,6 @@ int main()
 {
     int entry,num,elem;
     do{
-    int i=0;
     printf("Enter the operation to be performed: \n");
     printf("1 for push to stack\n");
     printf("2 to pop from stack\n");
