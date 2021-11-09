@@ -74,21 +74,3 @@ int main()
      printf("\n %c",elem);
      return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
