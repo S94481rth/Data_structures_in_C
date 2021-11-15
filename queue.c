@@ -7,6 +7,9 @@ int isEmpty(){
    if(front == -1 && rear == -1){
        return 1;
    }
+   else if(front == rear+1){
+       return 1;
+   }
    else{
        return 0;
     }
@@ -31,15 +34,16 @@ void enqueue(int a){
          arr[++rear] = a;
      }
  }
-int dequeue(){
+void dequeue(){
     if(isEmpty() == 1){
-        printf("Queue is Empty");
+        printf("Queue is Empty\n");
     }
     else{
-    return arr[front++];
+    int pop = arr[front++];
+    printf("popped element is %d\n",pop);
     }
  }
- void display(){
+  void display(){
   int i=0;
   for(i=front;i<=rear;i++){
      printf("%d  ",arr[i]);
@@ -59,16 +63,32 @@ int main(){
   enqueue(num);
   break;
   case 2: 
-  pop = dequeue();
-  printf("popped element is %d\n",pop);
+  dequeue();
   break;
   case 3:
   display(); 
   break;
   case 4:
-  exit(0);
   break;
     }
   }while(choice != 4);
 return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
