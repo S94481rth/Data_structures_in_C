@@ -4,10 +4,7 @@ int arr[SIZE];
 int front = -1;
 int rear = -1;
 int isFull(){
-    if(front == rear + 1){
-        return 1;
-    }
-    else if(rear == SIZE-1 && front == 0){
+    if(front == (rear + 1) % SIZE){
         return 1;
     }
     else{
@@ -16,12 +13,6 @@ int isFull(){
 }
 int isEmpty(){
     if(rear == -1 && front == -1){
-        return 1;
-    }
-    else if(front == rear + 1 ){
-        return 1;
-    }
-    else if(rear == SIZE-1 && front == 0){
         return 1;
     }
     else {
@@ -46,6 +37,11 @@ void dequeue(){
     if(isEmpty() == 1){
         printf("Circular queue is Empty! \n");
     }
+    else if(rear == front){
+        int pop = arr[front];
+        printf("Popped element is: %d \n",pop);
+        rear = front = -1;
+    }
     else{
         int pop = arr[front]; 
         front = (front + 1) % SIZE;
@@ -53,7 +49,10 @@ void dequeue(){
     }
 }
 void display(){
-    if(rear < front){
+    if(isEmpty() == 1){
+        printf("Empty Circular Queue!  ");
+    }
+    else if(rear < front){
     for(int i = front;  i <= rear + SIZE ; i++ ){
         int pls_work = i % SIZE;
         printf("%d ",arr[pls_work]);
@@ -92,3 +91,12 @@ int main(){
     }while(choice != 4);
   return 0;
   }
+
+
+
+
+
+
+
+
+
