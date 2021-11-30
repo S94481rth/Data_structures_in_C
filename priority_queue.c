@@ -51,7 +51,7 @@ display(){
 void sort(int arr[]){
      
     for(int i=0;i<=rear;i++){
-        int largest = arr[i],index=0;
+        int largest = arr[i],index=i;
         for(int j=i;j<=rear;j++){
             if(arr[j] > largest){
                 largest = arr[j];
