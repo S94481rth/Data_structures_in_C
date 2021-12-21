@@ -24,14 +24,21 @@ void in_front(int a){
 void in_back(int a){
     struct node* new_node;
     new_node = malloc(sizeof(struct node));
+    if(head == NULL){
+        head = new_node;
+        head -> data = a;
+        head -> next = NULL;
+    }
+    else{
     struct node* temp = head;
     while(temp -> next != NULL){
         temp = temp -> next;
-    }
+     }
     temp -> next = new_node;
     temp = temp -> next;
     temp -> data = a;
     temp -> next = NULL;
+    }
 }
 //insert between nodes...
 void in_between(int a, int position){
