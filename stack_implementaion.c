@@ -26,9 +26,14 @@ void push(int a){
 }
 
 void pop(){
+    if(head == NULL){
+        printf("\nStack is Empty!\n");
+    }
+    else{
     struct node*temp =head;
     head = head -> next;
     free(temp);
+    }
 }
 
 void display(){
@@ -44,9 +49,10 @@ void display(){
 int main(){
     int choice,entry;
     do{
-    printf("Enter your choice :: \n");
-    printf("1 to push:: \n2 to pop:: \n3 to display:: \n4 to exit:: ");
+    printf("\nEnter your choice :: \n");
+    printf("\n1 to push:: \n2 to pop:: \n3 to display:: \n4 to exit:: \n");
     scanf("%d",&choice);
+    printf("\n\n");
         switch (choice){
             case 1:
             printf("Enter element to push:: ");
