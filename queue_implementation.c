@@ -32,9 +32,14 @@ void enqueue(int a){
 }
 
 void dequeue(){
+    if(head == NULL){
+        printf("\nQueue is Empty\n");
+    }
+    else{
     struct node*temp =head;
     head = head -> next;
     free(temp);
+    }
 }
 
 void display(){
@@ -52,9 +57,10 @@ void display(){
 int main(){
     int choice,entry;
     do{
-    printf("Enter your choice :: \n");
-    printf("1 to enqueue:: \n2 to dequeue:: \n3 to display:: \n4 to exit:: ");
+    printf("\nEnter your choice :: \n");
+    printf("\n1 to enqueue:: \n2 to dequeue:: \n3 to display:: \n4 to exit:: \n");
     scanf("%d",&choice);
+    printf("\n\n");
         switch (choice){
             case 1:
             printf("Enter element to push:: ");
