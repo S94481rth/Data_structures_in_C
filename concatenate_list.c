@@ -9,6 +9,75 @@ struct node{
 
 struct node* head = NULL;
 struct node* head2 = NULL;
+
+
+struct node* push(int a,struct node*head){
+    struct node * new_node;
+    new_node = malloc(sizeof(struct node));
+    if(head == NULL){
+        head = new_node;
+        head -> data = a;
+        head -> next = NULL;
+    }
+    else{
+        new_node -> next = head;
+        new_node -> data = a;
+        head = new_node;
+    }
+    return head;
+}
+
+
+void display(struct node*head){
+    struct node* temp = head;
+    while(temp != NULL){
+        printf("%d ",temp-> data);
+        temp = temp -> next;
+    }
+    printf("\n \n");
+}
+
+
+
+void concatenate(){
+    struct node* temp = head;
+    
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    
+    temp -> next = head2;
+}
+
+int main(){
+    for(int i=5;i>0;i--){
+        head = push(i,head);
+        
+    }
+    for(int i=10;i>5;i--){
+        head2 = push(i,head2);
+    }
+    display(head);
+    display(head2);
+    concatenate();
+    display(head);
+    
+    return 0;
+}
+
+
+
+/*//concatenate two linked lists...
+#include<stdlib.h>
+#include<stdio.h>
+
+struct node{
+    int data;
+    struct node* next;
+};
+
+struct node* head = NULL;
+struct node* head2 = NULL;
 void push(int a){
     struct node * new_node;
     new_node = malloc(sizeof(struct node));
@@ -82,3 +151,5 @@ int main(){
     
     return 0;
 }
+
+*/
